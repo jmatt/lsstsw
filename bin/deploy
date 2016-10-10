@@ -196,6 +196,7 @@ test -f "$LSSTSW/eups/$EUPS_VERSION/.deployed" || ( # EUPS
     cd eups-$EUPS_VERSION
     ./configure --prefix="$LSSTSW/eups/$EUPS_VERSION" --with-python="$LSSTSW/miniconda/bin/python" --with-eups="$LSSTSW/stack"
     make
+    patch -p1 < "$LSSTSW/python_env.patch"
     make install
     touch "$LSSTSW/eups/$EUPS_VERSION/.deployed"
 )
